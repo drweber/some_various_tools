@@ -12,8 +12,8 @@ from optparse import OptionParser
 AIP_VERSION = "0.2.1"
 
 # Эти данные понадобятся, для ввода с клавиатуры в качестве параметров
-# AWS_SECRET_ACCESS_KEY = 'zL3fQe1l2+mitZ87xT7tjoF6A4V1mWJlC3DhJRkg'
-# AWS_ACCESS_KEY_ID = 'AKIAJPVDOQJIJNX3YN3A'
+# AWS_SECRET_ACCESS_KEY = '@@@@@@@@@@'
+# AWS_ACCESS_KEY_ID = '@@@@@@@@@@@@'
 # AWS_DEFAULT_REGION = 'us-east-1'
 
 
