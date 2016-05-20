@@ -13,6 +13,7 @@ for file in files:
     os.system("rm -rf %sresult*.xml" % working_directory)
     tree = et.parse(file)
     root = tree.getroot()
+    xmlnamespace = root.tag.split('{')[1].split('}')[0]
     try:
         parent_pom_version = root.find('%sversion' % pom_version).text
         major_version = parent_pom_version.split('.')
@@ -26,5 +27,5 @@ for file in files:
         root.find('%sparent/%sversion' % (pom_version, pom_version)).text = str(major_version[0]) + '.' + str(minor_version) + '-SNAPSHOT'
     print ("Version has changed in %s" % file)    
     tree.write('%sresult.xml' % working_directory)
-    os.system("sed -e 's/ns0://g;s/:ns0//g' %sresult.xml > %sresult2.xml" % (working_directory, working_directory))
-    os.system("mv -f %sresult2.xml %s" % (working_directory, file))
+    tree.write('%sresult.xml' % working_directory, default_namespace=xmlnamespace)
+    os.system("mv -f %sresult.xml %s" % (working_directory, file))
