@@ -24,6 +24,7 @@ for file in files:
         major_version = slave_pom_version.split('.')
         minor_version = str(int(major_version[1].split('-')[0])+1)
         root.find('%sparent/%sversion' % (pom_version, pom_version)).text = str(major_version[0]) + '.' + str(minor_version) + '-SNAPSHOT'
+    print ("Version has changed in %s" % file)    
     tree.write('%sresult.xml' % working_directory)
     os.system("sed -e 's/ns0://g;s/:ns0//g' %sresult.xml > %sresult2.xml" % (working_directory, working_directory))
     os.system("mv -f %sresult2.xml %s" % (working_directory, file))
