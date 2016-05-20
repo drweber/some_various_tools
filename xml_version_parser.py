@@ -3,7 +3,7 @@ import fnmatch
 import os
 
 files = []
-working_directory = 'path_to_workeing_dir'
+working_directory = 'path_to_working_dir'
 pom_version = '{http://maven.apache.org/POM/4.0.0}'
 
 for root1, dirnames, filenames in os.walk(working_directory):
