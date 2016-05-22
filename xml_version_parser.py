@@ -1,9 +1,10 @@
 from xml.etree import ElementTree as et
 import fnmatch
 import os
+import sys
 
 files = []
-working_directory = 'path_to_working_dir'
+working_directory = sys.argv[1]
 pom_version = '{http://maven.apache.org/POM/4.0.0}'
 
 for root1, dirnames, filenames in os.walk(working_directory):
