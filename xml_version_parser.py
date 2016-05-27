@@ -7,6 +7,7 @@ import sys
 
 files = []
 working_directory = sys.argv[1]
+git_branch = sys.argv[2]
 pom_version = '{http://maven.apache.org/POM/4.0.0}'
 
 for root1, dirnames, filenames in os.walk(working_directory):
@@ -33,4 +34,6 @@ for file in files:
     tree.write('%sresult.xml' % working_directory, default_namespace=xmlnamespace)
     os.system("mv -f %sresult.xml %s" % (working_directory, file))
     os.system("git add %s" % file)
+os.system("mv %srest/target/%s-%s %srest/target/ROOT.war" % (working_directory, git_branch, parent_app_version,
+                                                             working_directory))
 os.system("git commit -m 'Update pom.xml files, current version is %s'" % new_app_version)
